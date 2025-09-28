@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acadex Student App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tech-blue': '#2563eb',
+                        'teal': '#14b8a6',
+                        'orange': '#f97316'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .mobile-container {
+            width: 375px;
+            /* MODIFIED: Use viewport height with a max-height to fit better on screen */
+            height: 90vh;
+            max-height: 812px;
+            margin: 0 auto;
+            background: #f8fafc;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #e5e7eb;
+            border-radius: 25px;
+            /* MODIFIED: Use flexbox for a robust internal layout */
+            display: flex;
+            flex-direction: column;
+        }
+        .status-bar {
+            height: 44px;
+            background: linear-gradient(135deg, #2563eb 0%, #14b8a6 100%);
+            flex-shrink: 0; /* Prevents status bar from shrinking */
+        }
+        .scan-button {
+            background: linear-gradient(135deg, #2563eb 0%, #14b8a6 100%);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+        .scan-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+        }
+        .scan-button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 font-sans flex items-center justify-center min-h-screen p-4 md:p-8">
+    <div class="mobile-container">
+        <div class="status-bar flex items-center justify-between px-6 text-white text-sm font-medium">
+            <span>9:41</span>
+            <div class="flex items-center space-x-1">
+                <div class="flex space-x-1">
+                    <div class="w-1 h-1 bg-white rounded-full"></div>
+                    <div class="w-1 h-1 bg-white rounded-full"></div>
+                    <div class="w-1 h-1 bg-white rounded-full"></div>
+                </div>
+                <span class="ml-2">100%</span>
+                <div class="w-6 h-3 border border-white rounded-sm">
+                    <div class="w-full h-full bg-white rounded-sm"></div>
+                </div>
+            </div>
+        </div>
+
+        <header class="bg-white shadow-sm px-6 py-4 flex-shrink: 0;">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-gradient-to-r from-tech-blue to-teal rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">A</span>
+                    </div>
+                    <h1 class="text-xl font-bold text-gray-900">Live Attendance</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        <div class="absolute -top-1 -right-1 w-3 h-3 bg-orange rounded-full"></div>
+                    </div>
+                    <div class="w-8 h-8 bg-orange rounded-full flex items-center justify-center">
+                        <span class="text-white text-xs font-medium">SM</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="px-4 py-6 space-y-6 overflow-y-auto flex-1">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Welcome, Sushant!</h2>
+                <p class="text-gray-600">Ready to mark your attendance?</p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+                <div class="text-center">
+                    <div class="flex items-center justify-center space-x-2 mb-6">
+                        <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <span class="text-green-600 font-semibold text-sm">LIVE SESSION</span>
+                    </div>
+                    <div class="bg-gradient-to-r from-tech-blue/10 to-teal/10 rounded-xl p-6 mb-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">A session for Data Structures and Algorithms has started</h3>
+                        <div class="flex items-center justify-center space-x-2 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-tech-blue to-teal rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold text-sm">J</span>
+                            </div>
+                            <div class="text-left">
+                                <p class="font-semibold text-gray-900">Teacher: Vidhate Sir</p>
+                                <p class="text-sm text-gray-600">Started 5 minutes ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4 mb-6">
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div><p class="text-gray-500">Time</p><p class="font-semibold text-gray-900">2:30 PM</p></div>
+                            <div><p class="text-gray-500">Duration</p><p class="font-semibold text-gray-900">60 minutes</p></div>
+                            <div><p class="text-gray-500">Room</p><p class="font-semibold text-gray-900">CS-101</p></div>
+                            <div><p class="text-gray-500">Status</p><p class="font-semibold text-orange">Not Marked</p></div>
+                        </div>
+                    </div>
+                    <button onclick="handleScanClick()" class="scan-button w-full text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 mb-4">
+                        <div class="flex items-center justify-center space-x-3">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M12 12h-4.01M12 12v4m6-4h2m-6-4h2m-8 0h2m0 0V4m0 0h2m-6 0h2"></path></svg>
+                            <span class="text-lg">Scan Attendance Code</span>
+                        </div>
+                    </button>
+                    <p class="text-sm text-gray-500">Tap to open camera and scan the QR code</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+                <h4 class="text-lg font-semibold text-gray-900 mb-4">Recent Attendance</h4>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg"><div class="flex items-center space-x-3"><div class="w-2 h-2 bg-green-500 rounded-full"></div><div><p class="font-medium text-gray-900">Data Structures</p><p class="text-sm text-gray-500">Yesterday, 2:30 PM</p></div></div><span class="text-green-600 font-semibold text-sm">Present</span></div>
+                    <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg"><div class="flex items-center space-x-3"><div class="w-2 h-2 bg-green-500 rounded-full"></div><div><p class="font-medium text-gray-900">Database Management</p><p class="text-sm text-gray-500">Monday, 10:00 AM</p></div></div><span class="text-green-600 font-semibold text-sm">Present</span></div>
+                    <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg"><div class="flex items-center space-x-3"><div class="w-2 h-2 bg-red-500 rounded-full"></div><div><p class="font-medium text-gray-900">Computer Networks</p><p class="text-sm text-gray-500">Friday, 11:30 AM</p></div></div><span class="text-red-600 font-semibold text-sm">Absent</span></div>
+                </div>
+            </div>
+        </main>
+
+        <nav class="bg-white border-t border-gray-200 px-6 py-2 flex-shrink: 0;">
+            <div class="flex justify-around">
+                <button class="flex flex-col items-center py-2 px-3"><div class="w-6 h-6 bg-tech-blue rounded-lg mb-1 flex items-center justify-center"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></div><span class="text-xs font-medium text-tech-blue">Home</span></button>
+                <button class="flex flex-col items-center py-2 px-3"><div class="w-6 h-6 bg-gray-200 rounded-lg mb-1 flex items-center justify-center"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div><span class="text-xs text-gray-500">Timetable</span></button>
+                <button class="flex flex-col items-center py-2 px-3"><div class="w-6 h-6 bg-gray-200 rounded-lg mb-1 flex items-center justify-center"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg></div><span class="text-xs text-gray-500">Tasks</span></button>
+                <button class="flex flex-col items-center py-2 px-3"><div class="w-6 h-6 bg-gray-200 rounded-lg mb-1 flex items-center justify-center"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg></div><span class="text-xs text-gray-500">AI Chatbot</span></button>
+            </div>
+        </nav>
+    </div>
+
+    <script>
+        function handleScanClick() { /* ... script unchanged ... */ }
+    </script>
+</body>
+</html>
